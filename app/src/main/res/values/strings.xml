@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Swagger_Code</string>
+    <string name="categories_title">Categories:</string>
 </resources>
