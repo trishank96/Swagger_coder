@@ -11,6 +11,7 @@ import com.example.trishmuk.swagger_code.Models.Product
 import com.example.trishmuk.swagger_code.R
 import com.example.trishmuk.swagger_code.Services.DataList
 import com.example.trishmuk.swagger_code.Utilities.EXTRA_CATEGORY
+import com.example.trishmuk.swagger_code.Utilities.EXTRA_PRODUCT
 import kotlinx.android.synthetic.main.activity_product.*
 
 class ProductActivity : AppCompatActivity() {
@@ -22,8 +23,9 @@ class ProductActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product)
         val categoryType = intent.getStringExtra(EXTRA_CATEGORY)
 
-        adapter = ProductAdapter(this, DataList.getProduct(categoryType)){product ->
+        adapter = ProductAdapter(this, DataList.getProduct(categoryType)){
             val itemIntent = Intent(this, ItemActivity::class.java)
+            itemIntent.putExtra(EXTRA_PRODUCT, it)
             startActivity(itemIntent)
         }
         productListview.adapter = adapter
@@ -38,3 +40,5 @@ class ProductActivity : AppCompatActivity() {
 
     }
 }
+
+
